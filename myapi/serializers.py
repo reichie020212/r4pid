@@ -28,7 +28,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
         if User.objects.filter(username=username).exists():
             errors.update({'username': 'Username is already used.'})
-        if not username.isalpha():
+        if not username.isalnum():
             errors.update({'username': 'Space and special characters are not allowed'})
         if len(username) < 4:
             errors.update(
